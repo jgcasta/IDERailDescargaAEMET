@@ -32,18 +32,18 @@ public class Download {
     	
     	int resultFTP = 0;
     	String patronDir = "";
-    	String dirLocal = LeerPropiedades.leeProp("dirLocal"); //"/var/opt/astroide/meteo/datos/";
+    	String dirLocal = LeerPropiedades.leeProp("dirLocal"); 
 
     	Calendar calendar = Calendar.getInstance();
 
-  	    int dia = calendar.get(Calendar.DAY_OF_MONTH);   //dia del mes
+  	    int dia = calendar.get(Calendar.DAY_OF_MONTH);  
   	    String strDia = "";
   	    if (dia < 10){
   	    	strDia = "0" + Integer.toString(dia);
   	    }else{
   	    	strDia = Integer.toString(dia);
   	    }
-	    int mes = calendar.get(Calendar.MONTH) + 1;  //mes, de 0 a 11
+	    int mes = calendar.get(Calendar.MONTH) + 1;  
 	    String strMes = "";
 	    if (mes <10){
 	    	strMes = "0" + Integer.toString(mes);
@@ -52,10 +52,6 @@ public class Download {
 	    }
 	    int anio = calendar.get(Calendar.YEAR);  //año
 	 
-	    //int hora24 = calendar.get(Calendar.HOUR_OF_DAY); //hora en formato 24hs
-	    //int minutos = calendar.get(Calendar.MINUTE);
-	    //int segundos = calendar.get(Calendar.SECOND);
-	    //int milisegundos = calendar.get(Calendar.MILLISECOND);
 
 	    patronDir = Integer.toString(anio) + strMes + strDia ;
 	    
@@ -63,21 +59,19 @@ public class Download {
 	    String dirFTP = "rayos/" + patronDir + "/";
     	String fich = "";
     	
-    	// obtengo el nombre del último fichero generado hasta el momento
-    	fich = listFiles.UltimoFichero(dirFTP); 
-    	//System.out.println("a descargar " + dirFTP + fich);
     	
-    	// descargo el fichero
+    	fich = listFiles.UltimoFichero(dirFTP); 
+    	
     	logger.info("Descargando el fichero " + dirFTP + fich);
     	resultFTP = DownloadFile("ftpdatos.aemet.es", "anonymous", "jgcasta@gmail.com", dirFTP + fich, dirLocal + fich);
     	
-    	// descomprimo
+    	
     	logger.info("Descomprimiendo" + dirLocal + fich);
     	if (resultFTP == 0){
     		Unzip(dirLocal + fich);
     	}
     	
-    	// parseo los datos del fichero descomprimido a la base de datos y borrado
+    	
     	logger.info("Parseando a la BD");
     	MySQL.parsear(dirLocal + "datosRayosDescargados.txt");
     	
@@ -111,14 +105,14 @@ public class Download {
             client.connect(ftpserver);
             client.login(username, passwd);
             
-            // connection must be binary
+        
             client.setFileType(FTP.BINARY_FILE_TYPE);
 
-            // The remote filename to be downloaded.
+        
             String filename = destinationfile;
             fos = new FileOutputStream(filename);
 
-            // Download file from FTP server
+        
             client.retrieveFile( sourcefile, fos);
         
         } catch (IOException e) {
@@ -168,7 +162,7 @@ public class Download {
             gzipInputStream = new GZIPInputStream(new FileInputStream(inFilename));
             OutputStream out = new FileOutputStream(outFilename);
 
-            byte[] buf = new byte[1024];  //size can be changed according to programmer's need.
+            byte[] buf = new byte[1024];  
             int len;
             while ((len = gzipInputStream.read(buf)) > 0) {
               out.write(buf, 0, len);
