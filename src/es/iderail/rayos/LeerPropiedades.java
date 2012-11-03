@@ -16,7 +16,7 @@ public class LeerPropiedades {
 		String propiedad = "";
 		Properties props = new Properties();
         FileInputStream file;
-        String pathFichero = "/var/www/vhosts/astroide.es/httpdocs/trenes/scripts/aemet.properties";
+        String pathFichero = "aemet.properties";
 		try {
 			file = new FileInputStream(pathFichero);
 			
