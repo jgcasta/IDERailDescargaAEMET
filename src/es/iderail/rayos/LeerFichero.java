@@ -14,7 +14,7 @@ public class LeerFichero {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		String ruta = "/home/pepe/IDE/AEMET/datos/201012100000_datos.4.csv";
+		String ruta = "";
 		
 		leerFichero(ruta);
 	}
