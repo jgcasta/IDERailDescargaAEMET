@@ -14,7 +14,7 @@ public class ConfigLogger {
 
 	public static void ConfigLogger(){
 		
-		PropertyConfigurator.configure("/var/www/vhosts/astroide.es/httpdocs/trenes/scripts/log4j.properties");
+		PropertyConfigurator.configure("log4j.properties");
 		
 	}
 }
