@@ -19,7 +19,7 @@ public class Unzip{
         FileInputStream fileInputStream = null;
         
         gzipInputStream = new GZIPInputStream(new FileInputStream(inFilename));
-        String outFilename = "/home/pepe/IDE/AEMET/datos/ultimosDatos.csv";
+        String outFilename = "ultimosDatos.csv";
         OutputStream out = new FileOutputStream(outFilename);
 
         byte[] buf = new byte[1024];  //size can be changed according to programmer's need.
