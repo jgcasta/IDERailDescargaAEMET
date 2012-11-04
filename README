@@ -1,4 +1,6 @@
-Ficheros para la descarga de ficheros desde el servidor FTP de AEMET
+Programa para la descarga de ficheros desde el servidor FTP de AEMET
 
-jgcasta@gmail.com
+www.iderail.es
+
+Dentro de la carpeta utiles se encuentran el script rayos.sql para la creación de la tabla en la base de datos MySQL y el aemet.properties donde hay que poner la ruta al directorio local donde seprocesan los ficheros descargados y las credenciales de conexión al MySQL. El resto es el proyecto de Eclipse con el código java
 
